@@ -1,0 +1,19 @@
+.container {
+    border: 30px ridge #C90000;
+    border-radius: 20px;
+    width: 352px;
+    height: 352px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 352px;
+    height:20px;
+}
+
+div {
+    border: 1px dotted #808080;
+    width: 20px;
+    height: 20px;
+}
