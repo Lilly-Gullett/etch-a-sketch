@@ -1,7 +1,8 @@
 const gridSlider = document.querySelector('.slider');
 let gridValue = gridSlider.value;
 const tools = document.querySelectorAll('button');
-let color = '#000000'; //sets default to black
+const colorWheelSelection =document.querySelector('#color');
+let color = colorWheelSelection.value;
 
 addRows(gridValue);
 addColumns(gridValue); //sets the default grid
@@ -25,6 +26,9 @@ gridSlider.addEventListener('click', () => {
     }))
 });
 
+colorWheelSelection.addEventListener('change', () => {
+    color = colorWheelSelection.value;
+})
 
 divs.forEach(div => div.addEventListener('mouseover', () => {
     div.style.background = `${color}`;
