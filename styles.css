@@ -47,6 +47,13 @@ button:active {
     transform: translateY(10px);
 }
 
+.color-selector {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .slide-container{
     width: 100px;
     height: 75px;
