@@ -1,8 +1,23 @@
 const gridSlider = document.querySelector('.slider');
 let gridValue = gridSlider.value;
-const tools = document.querySelectorAll('button');
 const colorWheelSelection =document.querySelector('#color');
 let color = colorWheelSelection.value;
+
+//tools to set the different color options
+const colorSelector = document.querySelector('.color-selector');
+colorSelector.addEventListener('click', () => {
+    color=colorWheelSelection.value;
+})
+
+const colorShader = document.querySelector('.shader');
+
+const colorRandomizer = document.querySelector('.color-random');
+
+const eraser = document.querySelector('.eraser');
+eraser.addEventListener('click', () => {
+    color = '#FFFFFF'
+})
+
 
 addRows(gridValue);
 addColumns(gridValue); //sets the default grid
