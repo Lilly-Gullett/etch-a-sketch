@@ -1,9 +1,12 @@
 const gridSlider = document.querySelector('.slider');
 let gridValue = gridSlider.value;
-
+const tools = document.querySelectorAll('button');
+let color = '#000000'; //sets default to black
 
 addRows(gridValue);
 addColumns(gridValue); //sets the default grid
+
+let divs = document.querySelectorAll('.coloringArea');
 
 gridSlider.addEventListener('mousemove', () => {
     const gridValueDisplay = document.querySelector('.display');
@@ -12,7 +15,16 @@ gridSlider.addEventListener('mousemove', () => {
     gridValueDisplay.textContent=gridValue;
     addRows(gridValue);
     addColumns(gridValue);
+    divs = document.querySelectorAll('.coloringArea'); //reestablishes this group after the prior grid is removed
+    divs.forEach(div => div.addEventListener('mouseover', () => {
+        div.style.background = `${color}`;
+    }))
 });
+
+
+divs.forEach(div => div.addEventListener('mouseover', () => {
+    div.style.background = `${color}`;
+}))
 
 function removeGrid(n) {
     const frame = document.querySelector('.container');
@@ -32,6 +44,7 @@ function addColumns(n) {
             newSquares.setAttribute('style', 
             `width: ${size-2}px;
             height: ${size-2}px;`); //sets a dynamic size of the divs / 2 subtracted for borders
+            newSquares.classList.add('coloringArea')
             row.appendChild(newSquares);
         })
     }
