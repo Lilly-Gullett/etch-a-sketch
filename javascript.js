@@ -1,15 +1,27 @@
 const gridSlider = document.querySelector('.slider');
 const gridValueDisplay = document.querySelector('.display');
 let gridValue = gridSlider.value;
-const frame = document.querySelector('.container');
+
+
+addRows(gridValue);
+addColumns(gridValue); //sets the default grid
 
 gridSlider.addEventListener('click', () => {
+    removeGrid(gridValue);
     gridValue = gridSlider.value;
     gridValueDisplay.textContent=gridValue;
     addRows(gridValue);
     addColumns(gridValue);
 });
 
+function removeGrid(n) {
+    const frame = document.querySelector('.container');
+    const rows = document.querySelectorAll('.row');
+    n *= n;
+    rows.forEach( row => {
+        frame.removeChild(row);
+    })
+}
 
 function addColumns(n) {
     for (i=0; i<n; i++) { //sets how many columns we will add
@@ -26,6 +38,7 @@ function addColumns(n) {
 }
 
 function addRows(n) {
+    const frame = document.querySelector('.container');
     for (i=0; i<n; i++) {
         const newRows = document.createElement('div');
         newRows.classList.add('row');
