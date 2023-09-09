@@ -6,7 +6,7 @@ let gridValue = gridSlider.value;
 addRows(gridValue);
 addColumns(gridValue); //sets the default grid
 
-gridSlider.addEventListener('click', () => {
+gridSlider.addEventListener('mousemove', () => {
     removeGrid(gridValue);
     gridValue = gridSlider.value;
     gridValueDisplay.textContent=gridValue;
