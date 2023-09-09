@@ -1,5 +1,4 @@
 const gridSlider = document.querySelector('.slider');
-const gridValueDisplay = document.querySelector('.display');
 let gridValue = gridSlider.value;
 
 
@@ -7,6 +6,7 @@ addRows(gridValue);
 addColumns(gridValue); //sets the default grid
 
 gridSlider.addEventListener('mousemove', () => {
+    const gridValueDisplay = document.querySelector('.display');
     removeGrid(gridValue);
     gridValue = gridSlider.value;
     gridValueDisplay.textContent=gridValue;
