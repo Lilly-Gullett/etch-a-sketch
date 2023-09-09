@@ -10,9 +10,13 @@ let divs = document.querySelectorAll('.coloringArea');
 
 gridSlider.addEventListener('mousemove', () => {
     const gridValueDisplay = document.querySelector('.display');
-    removeGrid(gridValue);
     gridValue = gridSlider.value;
     gridValueDisplay.textContent=gridValue;
+})
+
+gridSlider.addEventListener('click', () => {
+    removeGrid(gridValue);
+    gridValue = gridSlider.value;
     addRows(gridValue);
     addColumns(gridValue);
     divs = document.querySelectorAll('.coloringArea'); //reestablishes this group after the prior grid is removed
