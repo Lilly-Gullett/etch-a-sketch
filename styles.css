@@ -5,8 +5,8 @@
 }
 
 html {
-    background: linear-gradient(white, var(--teal));
-    font-size: 16px;
+    background-color: #F0F0F0;
+    font-size: 15px;
     font-family: Arial, sans-serif;
 }
 
@@ -38,7 +38,7 @@ button {
     height: 75px;
     background-color: var(--yellow);
     border: 1px outset black;
-    font-size: 16px;
+    font-size: 15px;
     border-radius: 20px;
     cursor: pointer;
 }
@@ -100,5 +100,5 @@ a {
 }
 
 a:hover {
-    color: white
+    text-decoration: underline;
 }
