@@ -28,10 +28,10 @@ function addColumns(n) {
         const rows = document.querySelectorAll('.row');
         rows.forEach ( row => { //tells computer to add these columns to each row
             const newSquares = document.createElement('div');
-            let size = (500/n); 
+            let size = (600/n); 
             newSquares.setAttribute('style', 
-            `width: ${size}px;
-            height: ${size-2}px;`); //sets a dynamic size of the divs
+            `width: ${size-2}px;
+            height: ${size-2}px;`); //sets a dynamic size of the divs / 2 subtracted for borders
             row.appendChild(newSquares);
         })
     }

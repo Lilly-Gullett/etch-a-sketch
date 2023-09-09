@@ -1,19 +1,104 @@
-.container {
-    border: 30px ridge #C90000;
+:root {
+    --teal: #006E7F;
+    --yellow: #F8CB2E;
+    --red: #B22727;
+}
+
+html {
+    background: linear-gradient(white, var(--teal));
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.button-holder {
+    background-color: var(--teal);
+    width: 660px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     border-radius: 20px;
-    width: 352px;
-    height: 352px;
+}
+
+button {
+    width: 100px;
+    height: 75px;
+    background-color: var(--yellow);
+    border: 1px outset black;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button:active {
+    transform: translateY(10px);
+}
+
+.slide-container{
+    width: 100px;
+    height: 75px;
+    background-color: var(--yellow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px outset black;
+    border-radius: 20px;
+}
+
+.slider{
+    width: 80px;
+    height: 25px;
+}
+
+.slider::-webkit-slider-thumb {
+    cursor: pointer;
+}
+
+.container {
+    border: 30px ridge var(--red);
+    border-radius: 20px;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .row {
     display: flex;
     flex-direction: row;
-    width: 352px;
-    height:20px;
+    border:0;
+}   
+
+.row>div {
+    border: 1px dotted #808080;
+    background-color: white;
 }
 
-div {
-    border: 1px dotted #808080;
-    width: 20px;
-    height: 20px;
+footer {
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: white
 }
