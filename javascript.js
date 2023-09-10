@@ -30,9 +30,14 @@ eraser.addEventListener('click', () => {
 
 const clear = document.querySelector('.clear');
 clear.addEventListener('click', () => {
+    const frame = document.querySelector('.container');
+    frame.classList.add('shake')
     removeGrid(gridValue);
     addRows(gridValue);
     addColumns(gridValue);
+    setTimeout(function(){
+        frame.classList.remove('shake')
+    }, 3000);
 } )
 
 addRows(gridValue);

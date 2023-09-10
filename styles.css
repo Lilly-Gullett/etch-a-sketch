@@ -87,6 +87,10 @@ button:active {
     background-color: #FFFFFF;
 }
 
+.shake {
+    animation: shake-etch-a-sketch 1s linear 3;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -96,6 +100,10 @@ button:active {
 .row>div {
     background-color: white;
     opacity: .1;
+}
+
+.clear {
+    cursor: pointer;
 }
 
 footer {
@@ -109,4 +117,12 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+
+@keyframes shake-etch-a-sketch {
+    0% {transform: translateX(0px);}
+    33% {transform: translateX(10px);}
+    66% {transform: translateX(-10px);}
+    100% {transform: translateX(0px);}
 }
