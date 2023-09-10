@@ -28,7 +28,12 @@ eraser.addEventListener('click', () => {
     specialTool = 'off' //resets specialTool in case the last tool was shader or random
 })
 
-
+const clear = document.querySelector('.clear');
+clear.addEventListener('click', () => {
+    removeGrid(gridValue);
+    addRows(gridValue);
+    addColumns(gridValue);
+} )
 
 addRows(gridValue);
 addColumns(gridValue); //sets the default grid
@@ -129,5 +134,4 @@ function randomColorGenerator() {
         randomHexCode += hexDigit;
     }
     color = `${randomHexCode}`;
-    console.log(color)
 }
