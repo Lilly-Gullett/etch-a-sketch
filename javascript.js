@@ -54,7 +54,11 @@ gridSlider.addEventListener('click', () => {
             div.style.opacity = '1';
         } else if (specialTool === 'shader') {
             div.style.background = `${color}`;
-            div.style.opacity -= '-0.1'; 
+            if (div.style.opacity < 1.0) {
+                div.style.opacity -= '-0.1';
+            } else {
+                div.style.opacity = '0.1';
+            }
         } else {
             div.style.background = `${color}`;
             div.style.opacity = '1';
@@ -73,7 +77,11 @@ divs.forEach(div => div.addEventListener('mouseover', () => {
         div.style.opacity='1';
     } else if (specialTool === 'shader') {
         div.style.background = `${color}`;
-        div.style.opacity -= '-0.1';
+        if (div.style.opacity < 1.0) {
+            div.style.opacity -= '-0.1';
+        } else {
+            div.style.opacity = '0.1';
+        }
     } else {
         div.style.background=`${color}`;
         div.style.opacity='1';
