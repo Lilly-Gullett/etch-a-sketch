@@ -32,9 +32,11 @@ const clear = document.querySelector('.clear');
 clear.addEventListener('click', () => {
     const frame = document.querySelector('.container');
     frame.classList.add('shake')
-    removeGrid(gridValue);
-    addRows(gridValue);
-    addColumns(gridValue);
+    let divs = document.querySelectorAll('.coloringArea');
+    divs.forEach(div => {
+        div.style.background = '#FFFFFF';
+        div.style.opacity = '0.1';
+    })
     setTimeout(function(){
         frame.classList.remove('shake')
     }, 3000);
