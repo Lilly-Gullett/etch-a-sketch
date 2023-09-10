@@ -2,21 +2,33 @@ const gridSlider = document.querySelector('.slider');
 let gridValue = gridSlider.value;
 const colorWheelSelection =document.querySelector('#color');
 let color = colorWheelSelection.value;
+let specialTool = 'off';
 
 //tools to set the different color options
 const colorSelector = document.querySelector('.color-selector');
 colorSelector.addEventListener('click', () => {
     color=colorWheelSelection.value;
+    specialTool = 'off'; //resets specialTool in case the last tool was shader or random color
 })
 
 const colorShader = document.querySelector('.shader');
+colorShader.addEventListener('click', () => {
+    color = '#000000';
+    specialTool = 'shader';
+})
 
 const colorRandomizer = document.querySelector('.color-random');
+colorRandomizer.addEventListener('click', () => {
+    specialTool = 'random';
+    randomColorGenerator();
+})
 
 const eraser = document.querySelector('.eraser');
 eraser.addEventListener('click', () => {
-    color = '#FFFFFF'
+    color = '#FFFFFF';
+    specialTool = 'off' //resets specialTool in case the last tool was shader or random
 })
+
 
 
 addRows(gridValue);
@@ -47,6 +59,9 @@ colorWheelSelection.addEventListener('change', () => {
 
 divs.forEach(div => div.addEventListener('mouseover', () => {
     div.style.background = `${color}`;
+    if (specialTool === 'random') {
+        randomColorGenerator()
+    }
 }))
 
 function removeGrid(n) {
@@ -80,4 +95,14 @@ function addRows(n) {
         newRows.classList.add('row');
         frame.appendChild(newRows);
     }
+}
+
+function randomColorGenerator() {
+    let digits = ['1','2','3','4','5','6','7','8','9','0','A','B','C','D','E','F'];
+    let randomHexCode ='#'
+    for (i=1; i<7; i++) {
+        let hexDigit = digits[Math.floor(Math.random()*digits.length)];
+        randomHexCode += hexDigit;
+    }
+    color = `${randomHexCode}`;
 }
