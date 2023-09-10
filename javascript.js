@@ -20,7 +20,6 @@ colorShader.addEventListener('click', () => {
 const colorRandomizer = document.querySelector('.color-random');
 colorRandomizer.addEventListener('click', () => {
     specialTool = 'random';
-    randomColorGenerator();
 })
 
 const eraser = document.querySelector('.eraser');
@@ -49,7 +48,17 @@ gridSlider.addEventListener('click', () => {
     addColumns(gridValue);
     divs = document.querySelectorAll('.coloringArea'); //reestablishes this group after the prior grid is removed
     divs.forEach(div => div.addEventListener('mouseover', () => {
-        div.style.background = `${color}`;
+        if (specialTool ==='random') {
+            randomColorGenerator();
+            div.style.background = `${color}`;
+            div.style.opacity = '1';
+        } else if (specialTool === 'shader') {
+            div.style.background = `${color}`;
+            div.style.opacity -= '-0.1'; 
+        } else {
+            div.style.background = `${color}`;
+            div.style.opacity = '1';
+        }
     }))
 });
 
@@ -58,9 +67,16 @@ colorWheelSelection.addEventListener('change', () => {
 })
 
 divs.forEach(div => div.addEventListener('mouseover', () => {
-    div.style.background = `${color}`;
     if (specialTool === 'random') {
-        randomColorGenerator()
+        randomColorGenerator();
+        div.style.background = `${color}`;
+        div.style.opacity='1';
+    } else if (specialTool === 'shader') {
+        div.style.background = `${color}`;
+        div.style.opacity -= '-0.1';
+    } else {
+        div.style.background=`${color}`;
+        div.style.opacity='1';
     }
 }))
 
@@ -80,8 +96,8 @@ function addColumns(n) {
             const newSquares = document.createElement('div');
             let size = (600/n); 
             newSquares.setAttribute('style', 
-            `width: ${size-2}px;
-            height: ${size-2}px;`); //sets a dynamic size of the divs / 2 subtracted for borders
+            `width: ${size}px;
+            height: ${size}px;`);
             newSquares.classList.add('coloringArea')
             row.appendChild(newSquares);
         })
@@ -105,4 +121,5 @@ function randomColorGenerator() {
         randomHexCode += hexDigit;
     }
     color = `${randomHexCode}`;
+    console.log(color)
 }
